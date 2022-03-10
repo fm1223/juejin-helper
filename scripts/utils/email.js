@@ -1,6 +1,7 @@
 const nodemailer = require("nodemailer");
 const path = require("path");
 const got = require('got')
+const env = require("./env");
 
 
 async function wxpush({ subject, text, html }) {
@@ -11,7 +12,7 @@ async function wxpush({ subject, text, html }) {
 async function pushplus(sendObj) {
   let pushplus = env.PUSHPLUS
 
-  if (!Pushplus) {
+  if (!pushplus) {
     console.log(`未配置推送PUSHPLUS`)
     return;
   }
