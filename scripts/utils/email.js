@@ -1,5 +1,46 @@
 const nodemailer = require("nodemailer");
 const path = require("path");
+const got = require('got')
+
+
+async function wxpush({ subject, text, html }) {
+  await pushplus({ title: subject, content: text ?? html })
+}
+
+//pushplus推送
+async function pushplus(sendObj) {
+  let pushplus = env.PUSHPLUS
+
+  if (!Pushplus) {
+    console.log(`未配置推送PUSHPLUS`)
+    return;
+  }
+  const url = `http://www.pushplus.plus/send`
+
+  //加空行屏蔽广告
+  sendObj.content += '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+
+  let body = {
+    'token': pushplus,
+    'title': sendObj.title,
+    'content': sendObj.content
+  }
+
+  try {
+
+    const res = await got.post(url, {
+      json: body,
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).json()
+
+    console.log(`Pushplsh推送结果：${JSON.stringify(res)}`)
+  } catch (e) {
+    console.log(`${e.message}--${e.code}`)
+  }
+}
+
 
 async function main({ subject, text, html }) {
   const env = require("./env");
@@ -56,6 +97,6 @@ async function main({ subject, text, html }) {
   console.log("已通知订阅人！");
 }
 
-module.exports = main;
+module.exports = wxpush;
 
 // main().catch(console.error);
