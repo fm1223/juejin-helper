@@ -6,6 +6,7 @@ const env = require("./env");
 
 async function wxpush({ subject, text, html }) {
   await pushplus({ title: subject, content: text ?? html })
+  await serverJiang({ title: subject, content: text ?? html })
 }
 
 //pushplus推送
@@ -42,6 +43,33 @@ async function pushplus(sendObj) {
   }
 }
 
+//Server酱推送
+async function serverJiang(sendObj) {
+  let ServerJiang = env.SERVERJIANG
+  const url = `https://sctapi.ftqq.com/${ServerJiang}.send`
+
+  if (!ServerJiang) {
+      console.log(`未配置推送Server酱Key`)
+      return;
+  }
+
+  //微信server酱推送通知一个\n不会换行，需要两个\n才能换行，故做此替换
+  sendObj.content = sendObj.content.replace(/[\n\r]/g, '\n\n');
+
+  try {
+
+      const res = await got.post(url, {
+          body: `text=${sendObj.title}&desp=${sendObj.content}`,
+          headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+          }
+      }).json()
+
+      console.log(`Server酱推送结果：${JSON.stringify(res)}`)
+  } catch (e) {
+      console.log(`${e.message}--${e.code}`)
+  }
+}
 
 async function main({ subject, text, html }) {
   const env = require("./env");
