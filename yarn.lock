@@ -36,17 +36,14 @@
   dependencies:
     "@types/node" "*"
 
-"@types/node@*":
-  "integrity" "sha512-DBZCJbhII3r90XbQxI8Y9IjjiiOGlZ0Hr32omXIZvwwZ7p4DMMXGrKXVyPfuoBOri9XNtL0UK69jYIBIsRX3QQ=="
-  "resolved" "https://registry.npmjs.org/@types/node/-/node-17.0.21.tgz"
-  "version" "17.0.21"
-
-"@types/responselike@*", "@types/responselike@^1.0.0":
-  "integrity" "sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA=="
-  "resolved" "https://registry.npmjs.org/@types/responselike/-/responselike-1.0.0.tgz"
-  "version" "1.0.0"
+juejin-helper@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.npmmirror.com/juejin-helper/-/juejin-helper-0.1.4.tgz#921933b63cd21276dfd928f953a80fe87b454d45"
+  integrity sha512-14xMEhYgT+RhtmU13IJfMAeZwGwKwSzr+VjO5tCLtxP/MfrpEzSvmEOCKVRwITfJ3e2+NQyU//i+6jFVL9+9/Q==
   dependencies:
-    "@types/node" "*"
+    jsonwebtoken "^8.5.1"
+    node-fetch "^2.6.1"
+    uuid "^8.3.2"
 
 "buffer-equal-constant-time@1.0.1":
   "integrity" "sha1-+OcRMvf/5uAaXJaXpMbz5I1cyBk="
@@ -184,13 +181,15 @@
     "ecdsa-sig-formatter" "1.0.11"
     "safe-buffer" "^5.0.1"
 
-"jws@^3.2.2":
-  "integrity" "sha512-YHlZCB6lMTllWDtSPHz/ZXTsi8S00usEV6v1tjq8tOUZzw7DpSDWVXjXDre6ed1w/pd495ODpHZYSdkRTsa0HA=="
-  "resolved" "https://registry.npmjs.org/jws/-/jws-3.2.2.tgz"
-  "version" "3.2.2"
-  dependencies:
-    "jwa" "^1.4.1"
-    "safe-buffer" "^5.0.1"
+uuid@^8.3.2:
+  version "8.3.2"
+  resolved "https://registry.npmmirror.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
+  integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
+
+webidl-conversions@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-3.0.1.tgz#24534275e2a7bc6be7bc86611cc16ae0a5654871"
+  integrity sha1-JFNCdeKnvGvnvIZhHMFq4KVlSHE=
 
 "keyv@^4.0.0":
   "integrity" "sha512-tGv1yP6snQVDSM4X6yxrv2zzq/EvpW+oYiUz6aueW1u9CtS8RzUQYxxmFwgZlO2jSgCxQbchhxaqXXp2hnKGpQ=="
